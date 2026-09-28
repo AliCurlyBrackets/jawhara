@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Our Work | Jawaher Alshaam Printing</title>
+  <meta name="description" content="Jawaher Alshaam Printing portfolio: paper print, packaging, signage, display stands and promotional gifts.">
+  <meta name="theme-color" content="#16130F">
+  <meta property="og:title" content="Our Work | Jawaher Alshaam Printing">
+  <meta property="og:description" content="Jawaher Alshaam Printing portfolio: paper print, packaging, signage, display stands and promotional gifts.">
+  <meta property="og:image" content="assets/img/works/catalog.webp">
+  <meta property="og:locale" content="en_US">
+  <link rel="alternate" hreflang="ar" href="works.html">
+  <link rel="alternate" hreflang="en" href="works-en.html">
+  <link rel="icon" type="image/png" href="assets/img/brand/favicon.png">
+  <!-- يحدد الوضع (فاتح/داكن) قبل رسم الصفحة حتى لا يحدث وميض -->
+  <script>
+    (function () {
+      var d = document.documentElement, m;
+      d.classList.add('js');
+      try { m = localStorage.getItem('jw-theme'); } catch (e) {}
+      if (m !== 'light' && m !== 'dark') m = matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+      d.setAttribute('data-theme', m);
+    })();
+  </script>
+
+  <!-- الخطوط -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500&family=El+Messiri:wght@500;600;700&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600&display=swap">
+
+  <!-- المكتبات -->
+  <link rel="stylesheet" href="assets/vendor/swiper/swiper-bundle.min.css">
+
+  <!-- ملفات الموقع -->
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/pages.css">
+</head>
+<body class="page-works">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index-en.html" aria-label="Jawaher Alshaam — Home">
+        <img class="logo-for-dark " src="assets/img/brand/logo-gold.svg" alt="Jawaher Alshaam" width="178" height="57"><img class="logo-for-light " src="assets/img/brand/logo-dark.svg" alt="Jawaher Alshaam" width="178" height="57">
+      </a>
+      <nav class="main-nav" id="main-nav" aria-label="Main menu">
+        <ul class="nav-list">
+          <li><a class="nav-link" href="index-en.html">Home</a></li>
+          <li><a class="nav-link" href="about-en.html">About</a></li>
+          <li><a class="nav-link" href="works-en.html" aria-current="page">Our Work</a></li>
+          <li><a class="nav-link" href="blog-en.html">Blog</a></li>
+          <li><a class="nav-link" href="contact-en.html">Contact</a></li>
+        </ul>
+        <div class="mobile-contact">
+          <span>Al Mansurah, Riyadh</span>
+          <span class="ltr">054 088 0567</span><span class="ltr">050 597 2828</span>
+        </div>
+      </nav>
+      <div class="header-tools">
+        <a class="tool-btn lang" href="works.html" hreflang="ar" lang="ar" title="العربية" aria-label="العربية">ع</a>
+        <button class="tool-btn theme-toggle" type="button" aria-pressed="false" aria-label="Toggle theme"><svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M4.6 4.6l1.6 1.6M17.8 17.8l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.6 19.4l1.6-1.6M17.8 6.2l1.6-1.6"/></svg><svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.2A8.5 8.5 0 1 1 9.8 3.5a6.8 6.8 0 0 0 10.7 10.7Z"/></svg></button>
+        <a class="btn btn-gold btn-sm header-cta" href="contact-en.html">Get a Quote</a>
+      </div>
+      <button class="menu-toggle" type="button" aria-controls="main-nav" aria-expanded="false" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-hero">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index-en.html">Home</a><span aria-hidden="true">◆</span><span>Our Work</span></nav>
+        <span class="eyebrow">Portfolio</span>
+        <h1>Work we are <span class="gold-text">proud</span> to print</h1>
+        <p>Pick a category to see samples of what we produce, and tap any image to view it large.</p>
+      </div>
+      <span class="ghost-word" aria-hidden="true">PORTFOLIO</span>
+    </section>
+
+    <section class="section" style="padding-top:24px">
+      <div class="container">
+        <div class="filters" role="toolbar" aria-label="Filter work by category"></div>
+        <div id="works-output" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top:0">
+      <div class="container">
+        <div class="cta-band" data-reveal>
+          <div>
+            <h2>Have an idea? <span class="gold-text">We'll print it</span></h2>
+            <p>Send us the size, quantity and your design if you have one, and we will reply with a clear quote.</p>
+          </div>
+          <div class="cta-actions">
+            <a class="btn btn-gold" href="https://wa.me/966532446558" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.2.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 2s.8 2.3 1 2.5c.1.2 1.7 2.6 4.1 3.6 1.5.7 2.1.7 2.9.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.2-.2-.4-.3Z"/></svg> WhatsApp us</a>
+            <a class="btn" href="contact-en.html">Contact page <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </div>
+          <img class="gem-deco" src="assets/img/brand/favicon.png" alt="" aria-hidden="true">
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <div class="lightbox" role="dialog" aria-modal="true" aria-label="Work viewer" aria-hidden="true">
+    <div class="lb-top">
+      <p class="lb-title"></p>
+      <button class="lb-close" type="button" aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+    </div>
+    <div class="swiper lb-swiper" dir="ltr"><div class="swiper-wrapper"></div></div>
+    <div class="lb-bottom">
+      <button class="sw-btn lb-prev" type="button" aria-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button>
+      <span class="lb-count"></span>
+      <button class="sw-btn lb-next" type="button" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img class="logo-for-dark " src="assets/img/brand/logo-gold.svg" alt="Jawaher Alshaam" width="190" height="61"><img class="logo-for-light " src="assets/img/brand/logo-dark.svg" alt="Jawaher Alshaam" width="190" height="61">
+          <p>Jawaher Alshaam Printing & Advertising in Riyadh. We print everything your brand needs, from business cards to illuminated signs.</p>
+        </div>
+        <div class="footer-col">
+          <h3>Pages</h3>
+          <ul>
+            <li><a href="index-en.html">Home</a></li>
+            <li><a href="about-en.html">About</a></li>
+            <li><a href="works-en.html">Our Work</a></li>
+            <li><a href="blog-en.html">Blog</a></li>
+            <li><a href="contact-en.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Services</h3>
+          <ul>
+            <li><a href="works-en.html#print">Paper Print</a></li>
+            <li><a href="works-en.html#packaging">Packaging & Bags</a></li>
+            <li><a href="works-en.html#signage">Signage</a></li>
+            <li><a href="works-en.html#displays">Displays & Exhibitions</a></li>
+            <li><a href="works-en.html#gifts">Promotional Gifts</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Contact</h3>
+          <ul class="footer-phones">
+            <li><a href="tel:+966540880567">054 088 0567</a></li>
+            <li><a href="tel:+966505972828">050 597 2828</a></li>
+            <li><a href="tel:+966539268211">053 926 8211</a></li>
+            <li><a href="tel:+966532446558">053 244 6558</a></li>
+            <li><a href="https://www.google.com/maps/search/?api=1&query=%D8%AD%D9%8A+%D8%A7%D9%84%D9%85%D9%86%D8%B5%D9%88%D8%B1%D8%A9+%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6" target="_blank" rel="noopener">Al Mansurah, Riyadh</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© <span data-year>2026</span> Jawaher Alshaam Printing. All rights reserved.</p>
+        <div class="cmyk-bar" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><em>JAWAHER ALSHAAM</em></div>
+      </div>
+    </div>
+  </footer>
+
+  <a class="float-wa" href="https://wa.me/966532446558" target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.2.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 2s.8 2.3 1 2.5c.1.2 1.7 2.6 4.1 3.6 1.5.7 2.1.7 2.9.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.2-.2-.4-.3Z"/></svg></a>
+
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/works.js"></script>
+</body>
+</html>

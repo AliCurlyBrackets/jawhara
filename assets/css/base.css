@@ -1,0 +1,182 @@
+/* ==========================================================
+   base.css — الهوية، المتغيرات، الأساسيات
+   ألوان البراند مأخوذة من ملف اللوجو:
+   فحمي #231F20  /  ذهبي #CDA530
+   ========================================================== */
+
+:root {
+  /* ألوان البراند */
+  --ink: #16130F;          /* خلفية أعمق من الفحمي */
+  --charcoal: #231F20;     /* لون اللوجو الداكن */
+  --charcoal-2: #2D2826;   /* أسطح مرتفعة */
+  --line: #3A3431;         /* خطوط فاصلة */
+  --gold: #CDA530;         /* ذهبي اللوجو */
+  --gold-soft: #E3C56E;    /* ذهبي فاتح للتدرجات */
+  --gold-deep: #9C7A1C;    /* ذهبي غامق للظلال */
+  --paper: #F3EBDA;        /* نص أساسي بلون ورق دافئ */
+  --muted: #A69D8B;        /* نص ثانوي */
+
+  /* ألوان الطباعة CMYK — تستخدم في تفاصيل صغيرة فقط */
+  --c: #00A3DA; --m: #E4007C; --y: #FFE600; --k: #1A1A1A;
+
+  --gold-grad: linear-gradient(115deg, #9C7A1C 0%, #CDA530 35%, #E3C56E 55%, #CDA530 75%, #9C7A1C 100%);
+
+  /* متغيرات الوضع (الداكن هو الافتراضي) */
+  --surface: #231F20;               /* أسطح: الفوتر، البطاقات، الشريط */
+  --text: #F3EBDA;                  /* لون النص الأساسي */
+  --bd-soft: rgba(243,235,218,.28); /* حدود الأزرار */
+  --header-bg: rgba(22,19,15,.82);
+  --ink-fade: rgba(22,19,15,.55);
+  --overlay: rgba(14,12,10,.96);
+  --dust: #E3C56E;
+
+  /* الخطوط */
+  --f-display: 'El Messiri', 'Segoe UI', Tahoma, sans-serif;
+  --f-body: 'IBM Plex Sans Arabic', 'Segoe UI', Tahoma, sans-serif;
+  --f-latin: 'Cinzel', 'Times New Roman', serif;
+
+  /* مقياس الخطوط */
+  --fs-xs: .8125rem;
+  --fs-sm: .9375rem;
+  --fs-md: 1.0625rem;
+  --fs-lg: clamp(1.2rem, 1.1rem + .4vw, 1.4rem);
+  --fs-xl: clamp(1.6rem, 1.3rem + 1.2vw, 2.2rem);
+  --fs-2xl: clamp(2.1rem, 1.6rem + 2.4vw, 3.4rem);
+  --fs-3xl: clamp(2.6rem, 1.8rem + 4.2vw, 5.4rem);
+
+  /* مسافات */
+  --gutter: clamp(16px, 4vw, 48px);
+  --section: clamp(72px, 10vw, 140px);
+  --radius: 4px;
+  --max: 1240px;
+
+  --ease: cubic-bezier(.22, .8, .24, 1);
+  --header-h: 76px;
+
+  color-scheme: dark;
+}
+
+/* ---------- الوضع الفاتح ----------
+   يتفعل من زرار الشمس/القمر، ويتحفظ اختيار الزائر في المتصفح */
+[data-theme="light"] {
+  --ink: #F5F0E6;          /* خلفية بلون الورق */
+  --surface: #FFFDF8;
+  --charcoal-2: #EFE8DA;
+  --line: #DDD2BE;
+  --text: #231F20;         /* فحمي اللوجو للنصوص */
+  --muted: #6E6556;
+  --gold: #9C7A1C;         /* ذهبي أغمق ليكون مقروء على الفاتح */
+  --gold-soft: #CDA530;
+  --bd-soft: rgba(35,31,32,.25);
+  --header-bg: rgba(245,240,230,.86);
+  --ink-fade: rgba(245,240,230,.6);
+  --overlay: rgba(245,240,230,.97);
+  --dust: #9C7A1C;
+  color-scheme: light;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--ink);
+  color: var(--text);
+  font-family: var(--f-body);
+  transition: background-color .5s var(--ease), color .5s var(--ease);
+  font-size: var(--fs-md);
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+img, svg, canvas { display: block; max-width: 100%; }
+img { height: auto; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+input, textarea, select { font: inherit; color: inherit; }
+ul { list-style: none; margin: 0; padding: 0; }
+h1, h2, h3, h4, p { margin: 0; }
+
+h1, h2, h3 {
+  font-family: var(--f-display);
+  font-weight: 600;
+  line-height: 1.25;
+  text-wrap: balance;
+}
+
+::selection { background: var(--gold); color: var(--charcoal); }
+
+:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ---------- أدوات مساعدة ---------- */
+.container {
+  width: 100%;
+  max-width: var(--max);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.section { padding-block: var(--section); position: relative; }
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: .7em;
+  font-family: var(--f-latin);
+  font-size: var(--fs-xs);
+  letter-spacing: .32em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.eyebrow::before {
+  content: '';
+  width: 9px; height: 9px;
+  background: var(--gold);
+  transform: rotate(45deg);
+  flex: none;
+}
+
+.gold-text {
+  background: var(--gold-grad);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: goldShift 8s linear infinite;
+}
+@keyframes goldShift { to { background-position: -200% 0; } }
+
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+
+.skip-link {
+  position: absolute; inset-inline-start: 12px; top: -60px; z-index: 200;
+  background: var(--gold); color: var(--charcoal); padding: 8px 16px; border-radius: var(--radius);
+}
+.skip-link:focus { top: 12px; }
+
+.ltr { direction: ltr; unicode-bidi: isolate; display: inline-block; }
+
+/* ---------- ظهور العناصر أثناء التمرير ----------
+   العناصر ظاهرة افتراضيًا. تختفي فقط لو الجافاسكربت شغال (html.js)
+   ويظهرها main.js عند دخولها الشاشة. */
+html.js [data-reveal] {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity .9s var(--ease), transform .9s var(--ease);
+  transition-delay: var(--d, 0s);
+}
+html.js [data-reveal].is-in { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
+  html.js [data-reveal] { opacity: 1; transform: none; }
+}

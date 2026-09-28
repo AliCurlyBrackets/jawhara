@@ -1,0 +1,118 @@
+/* ==========================================================
+   blog.css — المدونة: قائمة المقالات، المقال، السايد بار
+   كل الألوان من متغيرات base.css فتعمل في الوضعين الفاتح والداكن
+   ========================================================== */
+
+.blog-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 340px;
+  gap: clamp(28px, 4vw, 56px);
+  align-items: start;
+}
+@media (max-width: 1000px) { .blog-layout { grid-template-columns: minmax(0, 1fr); } }
+
+/* ---------- شبكة المقالات ---------- */
+.posts-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px 26px; }
+@media (max-width: 640px) { .posts-grid { grid-template-columns: minmax(0, 1fr); } }
+
+.post-card { display: flex; flex-direction: column; gap: 16px; animation: workIn .7s var(--ease) both; }
+.post-thumb { display: block; overflow: hidden; border-radius: var(--radius); background: var(--surface); }
+.post-thumb img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; transition: transform 1s var(--ease); }
+.post-card:hover .post-thumb img { transform: scale(1.05); }
+.post-card-body { display: grid; gap: 10px; }
+.post-card h2 { font-size: var(--fs-lg); line-height: 1.45; }
+.post-card h2 a { background: linear-gradient(currentColor, currentColor) 100% 100% / 0 1px no-repeat; transition: background-size .5s var(--ease); }
+[dir="ltr"] .post-card h2 a { background-position: 0 100%; }
+.post-card:hover h2 a { background-size: 100% 1px; }
+.post-card p { color: var(--muted); font-size: var(--fs-sm); }
+.read-more { display: inline-flex; align-items: center; gap: 8px; color: var(--gold); font-weight: 600; font-size: var(--fs-sm); }
+.read-more svg { width: 16px; height: 16px; transition: transform .4s var(--ease); }
+.read-more:hover svg { transform: translateX(-4px); }
+[dir="ltr"] .read-more:hover svg { transform: translateX(4px); }
+
+/* المقال المميز: أول مقال في "كل المقالات" */
+.post-card.featured { grid-column: 1 / -1; display: grid; grid-template-columns: 1.15fr 1fr; gap: 28px; align-items: center; }
+.post-card.featured h2 { font-size: var(--fs-xl); }
+.post-card.featured p { font-size: var(--fs-md); }
+@media (max-width: 760px) { .post-card.featured { grid-template-columns: minmax(0, 1fr); } }
+
+.post-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 14px; font-size: var(--fs-xs); color: var(--muted); }
+.post-meta > * + *::before { content: '◆'; color: var(--gold); font-size: 8px; margin-inline-end: 14px; vertical-align: middle; }
+.post-meta > .post-cat + *::before { display: none; }
+.post-cat {
+  display: inline-block; padding: 3px 12px; border-radius: 999px;
+  border: 1px solid rgba(205,165,48,.45); color: var(--gold); font-size: var(--fs-xs); font-weight: 600;
+  transition: background .3s, color .3s;
+}
+.post-cat:hover { background: var(--gold); color: var(--charcoal); }
+.empty { padding: 60px 0; color: var(--muted); display: grid; gap: 16px; justify-items: start; }
+
+/* ---------- السايد بار ---------- */
+.blog-sidebar { position: sticky; top: calc(var(--header-h) + 20px); display: grid; gap: 20px; }
+@media (max-width: 1000px) { .blog-sidebar { position: static; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); } }
+.side-box { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 22px; }
+.side-title {
+  display: flex; align-items: center; gap: 10px;
+  font-size: var(--fs-md); margin-bottom: 14px; padding-bottom: 12px; border-bottom: 1px solid var(--line);
+}
+.side-title::before { content: ''; width: 8px; height: 8px; background: var(--gold); transform: rotate(45deg); flex: none; }
+
+.side-cats { display: grid; gap: 2px; }
+.side-cats a { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 8px 10px; border-radius: 6px; font-size: var(--fs-sm); color: var(--muted); transition: background .3s, color .3s; }
+.side-cats a b { font-family: var(--f-latin); font-weight: 400; font-size: 12px; color: var(--gold); }
+.side-cats a:hover { color: var(--text); background: var(--charcoal-2); }
+.side-cats a[aria-current="true"] { background: var(--gold); color: var(--charcoal); font-weight: 600; }
+.side-cats a[aria-current="true"] b { color: var(--charcoal); }
+
+.side-list { display: grid; gap: 14px; margin: 0; padding: 0; list-style: none; }
+.mini-post { display: grid; grid-template-columns: 76px 1fr; gap: 12px; align-items: center; }
+.mini-post img { width: 76px; height: 60px; object-fit: cover; border-radius: 4px; }
+.mini-post b, .rank-post b { display: block; font-size: var(--fs-sm); font-weight: 500; line-height: 1.5; transition: color .3s; }
+.mini-post:hover b, .rank-post:hover b { color: var(--gold); }
+.mini-post time { font-size: 12px; color: var(--muted); }
+.rank-post { display: grid; grid-template-columns: 40px 1fr; gap: 10px; align-items: start; }
+.rank { font-family: var(--f-latin); font-size: var(--fs-lg); line-height: 1.2; color: transparent; -webkit-text-stroke: 1px var(--gold); }
+.rank-post small { color: var(--muted); font-size: 12px; }
+
+.side-cta { background: radial-gradient(120% 120% at 100% 0%, rgba(205,165,48,.22), transparent 60%), var(--surface); border-color: rgba(205,165,48,.35); display: grid; gap: 10px; justify-items: start; }
+.side-cta h2 { font-size: var(--fs-lg); }
+.side-cta p { color: var(--muted); font-size: var(--fs-sm); }
+
+/* ---------- صفحة المقال ---------- */
+.post-page { padding-top: calc(var(--header-h) + clamp(36px, 6vw, 72px)); }
+.post-head { display: grid; gap: 16px; justify-items: start; margin: 22px 0 28px; }
+.post-head h1 { font-size: var(--fs-2xl); line-height: 1.3; max-width: 22ch; }
+.post-cover { margin: 0 0 36px; }
+.post-cover img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: var(--radius); }
+
+.post-body { max-width: 68ch; font-size: var(--fs-md); line-height: 2; }
+[lang="en"] .post-body { line-height: 1.8; }
+.post-body > * + * { margin-top: 1.1em; }
+.post-body h2 { font-size: var(--fs-xl); margin-top: 1.8em; }
+.post-body ul { list-style: none; padding: 0; display: grid; gap: 10px; }
+.post-body li { position: relative; padding-inline-start: 22px; }
+.post-body li::before { content: ''; position: absolute; inset-inline-start: 0; top: .8em; width: 7px; height: 7px; background: var(--gold); transform: rotate(45deg); }
+.post-body strong { color: var(--gold); font-weight: 600; }
+.post-body blockquote {
+  margin-inline: 0; padding: 20px 24px; border-radius: var(--radius);
+  background: var(--surface); border-inline-start: 3px solid var(--gold);
+  font-family: var(--f-display); font-size: var(--fs-lg);
+}
+
+.share { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 40px; padding-top: 24px; border-top: 1px solid var(--line); }
+.share > span { font-weight: 600; margin-inline-end: 8px; }
+.share .icon-btn { width: 42px; height: 42px; border-radius: 50%; display: grid; place-items: center; border: 1px solid var(--line); color: var(--muted); transition: all .3s; }
+.share .icon-btn:hover { border-color: var(--gold); color: var(--gold); }
+.share .icon-btn svg { width: 17px; height: 17px; }
+.share .icon-btn.copied { background: var(--gold); border-color: var(--gold); color: var(--charcoal); }
+
+.post-nav { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 36px; }
+.post-nav a { display: grid; gap: 4px; padding: 18px 20px; border: 1px solid var(--line); border-radius: var(--radius); transition: border-color .3s; }
+.post-nav a:hover { border-color: var(--gold); }
+.post-nav small { color: var(--gold); font-size: var(--fs-xs); }
+.post-nav b { font-weight: 500; font-size: var(--fs-sm); line-height: 1.5; }
+.post-nav .next { text-align: end; }
+@media (max-width: 560px) { .post-nav { grid-template-columns: 1fr; } .post-nav .next { text-align: start; } }
+
+.related { margin-top: 56px; }
+.related > h2 { font-size: var(--fs-xl); margin-bottom: 24px; }
